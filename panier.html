@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <tbody id="tt produits">
+ <tr>
+     <td class="nom article"><div style="margin-right: 1rem;"><img src="vert.jpg"></div></td>
+     <td class="quantite">
+        <button class="btnmoins" id="1">-</button>
+        <input type="text" readonly placeholder="prix unique" class="qutt" value="1">
+        <button class="btnplus" id="1">+</button>
+     </td>
+        <td class="prx">2000 fr</td>
+        <td class="soustt">2000 fr</td>
+   </tr>
+</br>
+</tbody>
+       
+    <tfoot>
+        <tr>
+            <td><input type="text" id="nompdt" placeholder="nom de l'article"></td>
+            <td><input type="number" step="1" id="prixprod" value="1000"></td></br>
+
+            <td><button type="button" id="ajtpdt">ajouter article</button></td>
+        </tr>
+    </tfoot>
+    </body>
+</html>
+
+
+    <script>
+        let btnplus = document.querySelector('.btnplus');
+        let btnmoins = document.querySelector('.btnmoins')
+
+btnplus.addEventListener('click',incrementQutt);
+btnmoins.addEventListener('click',decrementQutt);
+
+function incrementQutt() {
+
+document.querySelector('.qutt').value = parseInt(document.querySelector('.qutt').value)+1;
+         total();
+}
+
+function decrementQutt(){
+    if (document.querySelector('.qutt').value > 0) {
+    document.querySelector('.qutt').value = parseInt(document.querySelector('.qutt').value)-1;
+         total();
+    }
+}
+
+    function total(){
+          let a = parseInt(document.querySelector('.prx').innerText);
+          let b = parseInt(document.querySelector('.qutt').value);
+          let c = a*b;
+          document.querySelector('.soustt').innerText = c ;
+    }
+    </script>
